@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 template<typename T>  //using a template class
 class Node{ // this is a class to define the structure of the Node 
 
@@ -62,6 +65,7 @@ class HashTable{  // class to define the hash table
             Node<T> *temp = table[i];
             while(temp != NULL){
                 cout<<temp -> key<<"->";
+                temp = temp -> next;
             }
             cout<<endl;
         }
