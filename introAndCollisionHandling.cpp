@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 
-template<typename T>
-class Node{
+template<typename T>  //using a template class
+class Node{ // this is a class to define the structure of the Node 
 
     public:
     string key;
@@ -14,7 +14,7 @@ class Node{
         value = val;
         next = NULL;
     }
-    ~Node(){
+    ~Node(){  // destructor so that when the node is deleted, it is called(would be a recursive approach)
         if(next!=NULL){
             delete next;
         }
@@ -22,7 +22,7 @@ class Node{
 };
 
 template<typename T>
-class HashTable{
+class HashTable{  // class to define the hash table 
     Node<T>** table;
     int current_size;
     int table_size;
