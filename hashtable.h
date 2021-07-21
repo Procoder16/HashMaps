@@ -38,6 +38,35 @@ class HashTable{  // class to define the hash table
         return idx;
     }
 
+    void rehash(){
+        Node<T>** oldTable = table;  // making a pointer that points to the old table
+        int oldTableSize = table_size;
+        table_size = 2*table_size; // approximation find the next prime no
+        table = new Node<T>*[table_size];
+
+        //initialising the new table with NULL
+
+        for(int i = 0; i < table_size; i++){
+            table[i] = NULL;
+        }
+
+        current_size = 0;
+
+        //shift the elemenst from table to the new table
+
+        for(int i = 0; i < oldTableSize; i++){
+            Node<T>*temp = oldTable[i];
+            while(temp!=NULL){
+                insert(temp -> key, temp -> value);
+                temp = temp -> next;
+            }
+            if(oldTable[i] != NULL){
+                delete oldTable[i];
+            }
+        }
+        delete [] oldTable;
+    }
+
     public:
     HashTable(int ts = 7){
         table_size = ts;
@@ -57,6 +86,10 @@ class HashTable{  // class to define the hash table
         current_size++;
 
         //rehash
+        float load_factor = current_size/(1.0*table_size);
+        if(load_factor > 0.7){ // 0.7 here is the threshold value that we can define
+            rehash();
+        }
     }
 
     void print(){
