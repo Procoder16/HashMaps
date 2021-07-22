@@ -104,9 +104,16 @@ class HashTable{  // class to define the hash table
         }
     }
 
-    // T search(string key){
-
-    // }
+    T* search(string key){  // we are using T* because if the key is not found, then we would return NULL and cannot be the return type T
+        int idx = hashFn(key);
+        Node<T>* temp = table[idx];
+        while(temp != NULL){
+            if(temp -> key == key){
+                return &temp -> val;
+            }
+        }
+        return NULL;
+    }
 
     // void erase(string key){
         
