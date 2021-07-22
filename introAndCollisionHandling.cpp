@@ -27,5 +27,9 @@ int main(){
         cout<<"THE PRICE IS "<<*price<<endl; // using *price because the function returns a pointer to the function, so * would give its value 
     }
 
+    price_menu.erase("Noodles");
+    cout<<"NEW HASHTABLE AFTER REMOVAL:"<<endl;
+    price_menu.print();
+
     return 0;
 }
