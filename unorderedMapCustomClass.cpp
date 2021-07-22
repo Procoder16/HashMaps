@@ -1,25 +1,51 @@
 #include<iostream>
+#include<string>
+#include<unordered_map>
 using namespace std;
 
 class Student{
+    public:
     string firstName;
     string lastName;
-    int rollNo;
-
-    public:
-    Student(string fn, string ln, int rn){
+    string rollNo;
+    
+    Student(string fn, string ln, string rn){
         firstName = fn;
         lastName = ln;
         rollNo = rn;
+    }
+
+    bool operator == (const Student &s) const{
+        return rollNo == s.rollNo;
+    }
+};
+
+class hashFn{
+    public: 
+    size_t operator()(const Student &s) const{
+        return s.firstName.length() + s.lastName.length();
     }
 };
 
 int main(){
 
-    Student s1("Soumik", "Mukherjee", 547);
-    Student s2("Rohit", "Sharma", 45);
-    Student s3("Soumik", "Ghosh", 78);
-    Student s4("Rohit", "Sharma", 29);
+    unordered_map<Student, int, hashFn> student_map;
+                                //this is where you give the input of your custom hash function
+    Student s1("Soumik", "Mukherjee", "547");
+    Student s2("Rohit", "Sharma", "045");
+    Student s3("Soumik", "Ghosh", "078");
+    Student s4("Rohit", "Sharma", "329");
+
+    student_map[s1] = 100;
+    student_map[s2] = 97;
+    student_map[s3] = 45;
+    student_map[s4] = 88;
+
+    //iterate over all students
+
+    for(auto s : student_map){
+        cout<<s.first.firstName<<" "<<s.first.lastName<<" and Marks:"<<s.second<<endl;
+    }   
 
     return 0;
 }
