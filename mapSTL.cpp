@@ -38,6 +38,8 @@ int main(){
         cout<<"FRUIT NOT PRESENT!!!"<<endl;
     }
 
+    m.erase(fruit);
+
     // Another way of searching for an element is using the count function
     // The count function returns 1 if the key is present, else returns 0
 
