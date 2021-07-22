@@ -6,6 +6,7 @@ using namespace std;
 /*
     One thing we should keep in mind that a map stores only unique values. So suppose from the below example, if you update
     m["Banana"] = 40 and then search it, the value would be updated and hence 40 would be printed. 
+    Also the keys are inserted in a lexicographical order
 */
 
 int main(){
