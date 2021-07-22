@@ -118,12 +118,12 @@ class HashTable{  // class to define the hash table
     void erase(string key){
         int idx = hashFn(key);
         Node<T>* temp = table[idx];
-        if(temp -> key == key){
+        if(temp -> key == key){  // checking for the head node only
             Node<T>* todelete = temp;
             table[idx] = temp -> next;
             delete todelete;
         }
-        while(temp -> next != NULL && temp -> next -> key != key){
+        while(temp -> next != NULL && temp -> next -> key != key){  //checking for the rest of the list
             if(temp -> next-> key == key){
                 Node<T>* todelete = temp -> next;
                 temp -> next = temp -> next -> next;
