@@ -109,10 +109,21 @@ class HashTable{  // class to define the hash table
         Node<T>* temp = table[idx];
         while(temp != NULL){
             if(temp -> key == key){
-                return &temp -> value;  // we are returning the address as the return type is T*
+                return &temp -> value;   // we are returning the address as the return type is T*
             }
         }
         return NULL;
+    }
+
+    T& operator[](string key){
+        T* f = search(key);
+        if(f == NULL){
+            // Insert key, value(garbage) in the hashmap
+            T garbage;
+            insert(key, garbage);
+            f = search(key);
+        }
+        return *f;
     }
 
     void erase(string key){

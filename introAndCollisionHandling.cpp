@@ -30,6 +30,17 @@ int main(){
     price_menu.erase("Noodles");  // removing the key noodles
     cout<<"NEW HASHTABLE AFTER REMOVAL:"<<endl;
     price_menu.print();
+    cout<<endl;
+
+    //Map
+
+    //Insert
+    price_menu["Dosa"] = 60;
+    //Update
+    price_menu["Dosa"] += 10;
+    //search
+    cout<<"Price of Dosa ";
+    cout<<price_menu["Dosa"] << endl;
 
     return 0;
 }
