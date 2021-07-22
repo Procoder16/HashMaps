@@ -28,7 +28,11 @@ int main(){
     string fruit;
     cin>>fruit;
 
+    // updating the price of the input fruit
+    m[fruit] += 25;
+
     auto it = m.find(fruit);
+    // If you don't want to use auto, then the data type of the iterator would be map<string, int> :: iterator it
     // the find function returns an iterator and goes upto the end of the map which is basically NULL.
     // So, if the iterator returns NULL, that means the find function has reached the end and and was not able to find the element 
     if(it != m.end()){
@@ -47,7 +51,20 @@ int main(){
         cout<<fruit<<" is present in the map.";
     }
     else{
-        cout<<fruit<<" not present.";
+        cout<<fruit<<" not present."<<endl;
+    }
+
+    m["Litchi"] = 65;  // adding some more values to the map
+    m["Pineapple"] = 40;
+    m["Grapes"] = 38;
+
+    //iterating over all the mapped values
+
+    for(auto it = m.begin(); it != m.end(); it++){
+        // there are two ways in which we can access the values of the map
+        // 1. (*it).first and (*it).second... we are using a * because it is an iterator
+        // 2. second way is that we can use it -> first and it -> second
+        cout<<it->first<<" -> "<<it -> second<<endl;
     }
     
     return 0;
