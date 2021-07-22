@@ -35,7 +35,17 @@ int main(){
         cout<<"Price of "<<fruit<<" is "<<m[fruit]<<endl; //m[fruit] will directly give you the value associated with it
     }
     else{
-        cout<<"FRUIT NOT PRESENT!!!";
+        cout<<"FRUIT NOT PRESENT!!!"<<endl;
+    }
+
+    // Another way of searching for an element is using the count function
+    // The count function returns 1 if the key is present, else returns 0
+
+    if(m.count(fruit)){
+        cout<<fruit<<" is present in the map.";
+    }
+    else{
+        cout<<fruit<<" not present.";
     }
     
     return 0;
