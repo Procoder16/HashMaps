@@ -109,7 +109,7 @@ class HashTable{  // class to define the hash table
         Node<T>* temp = table[idx];
         while(temp != NULL){
             if(temp -> key == key){
-                return &temp -> val;
+                return &temp -> value;
             }
         }
         return NULL;
