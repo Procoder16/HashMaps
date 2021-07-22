@@ -18,5 +18,14 @@ int main(){
 
     price_menu.print(); // calling the print function to print the hashtable
 
+    int *price = price_menu.search("Noodles");
+
+    if(price == NULL){
+        cout<<"NOT FOUND";
+    }
+    else{
+        cout<<"THE PRICE IS "<<*price<<endl;
+    }
+
     return 0;
 }
