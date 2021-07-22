@@ -105,11 +105,11 @@ class HashTable{  // class to define the hash table
     }
 
     T* search(string key){  // we are using T* because if the key is not found, then we would return NULL and cannot be the return type T
-        int idx = hashFn(key);
+        int idx = hashFn(key); // it gives the idx of the key in the table according to the definition 
         Node<T>* temp = table[idx];
         while(temp != NULL){
             if(temp -> key == key){
-                return &temp -> value;
+                return &temp -> value;  // we are returning the address as the return type is T*
             }
         }
         return NULL;

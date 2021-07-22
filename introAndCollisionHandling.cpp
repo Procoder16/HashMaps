@@ -24,7 +24,7 @@ int main(){
         cout<<"NOT FOUND";
     }
     else{
-        cout<<"THE PRICE IS "<<*price<<endl;
+        cout<<"THE PRICE IS "<<*price<<endl; // using *price because the function returns a pointer to the function, so * would give its value 
     }
 
     return 0;
