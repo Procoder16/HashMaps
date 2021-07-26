@@ -2,7 +2,10 @@
 using namespace std;
 
 /*
-         
+    The idea almost follows the same as the question "Check whether Subarray with sum 0 is present or not".
+    The only difference is that we would be using unordered map or map instead of set to store the idex of the last occurence.
+    ***And one edge case to keep in mind is that, if the prefix sum at amy position is zero, then that should be the longest subarray with sum 0 till
+    that position.
 */    
 
 int main(){
