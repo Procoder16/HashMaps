@@ -36,6 +36,9 @@ int main(){
     map<int, int> m;
 
     for(int i = 0; i < n; i++){
+        if(arr[i] == 0){
+            maxLen = max(maxLen, i+1);
+        }
         if(m.count(arr[i]) > 0){
             int diff = i - m[arr[i]];
             maxLen = max(maxLen, diff);
@@ -47,7 +50,7 @@ int main(){
 
     cout<<endl;
     
-    cout<<maxLen;
+    cout<<"LONGEST SUBARRAY WITH SUM 0: "<<maxLen;
 
     return 0;
 }
