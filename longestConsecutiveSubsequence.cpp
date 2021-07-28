@@ -17,7 +17,7 @@ using namespace std;
                 -> It has one streak only on any one side:
                     > Calculate the streak length on that side.
                     > Give the current number the value of streak length + 1
-                    > Change the end value to streak plus one also.             
+                    > Change the end value to streak plus one also.                                              
 */
 
 int longestConsecutiveSubsequence(int arr[], int n){
