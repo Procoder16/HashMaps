@@ -60,13 +60,37 @@ int longestConsecutiveSubsequence(int arr[], int n){
     return largest;
 }
 
+int longestConsecutiveSubsequenceSet(int arr[], int n){
+
+    unordered_set<int> s;
+    for(int i = 0; i < n; i++){
+        s.insert(arr[i]);
+    }
+
+    int maxLen = INT_MIN;
+
+    for(int i = 0; i < n; i++){
+        int num = arr[i];
+        if(s.count(num - 1) == 0){
+            int strkLen = 1;
+            while(s.count(num + 1)){
+                strkLen++;
+                num++;
+            }
+            maxLen = max(maxLen, strkLen);
+        } 
+    }
+    return maxLen;
+}
+
 int main(){
 
     int arr[] = {14,5,1,2,6,8,9,4,3,10,0};
 
     int n = sizeof(arr)/sizeof(int);
 
-    cout<<"LENGTH OF THE LONGEST CONSECUTIVE SUBSEQUENCE:"<<longestConsecutiveSubsequence(arr, n);    
+    cout<<"LENGTH OF THE LONGEST CONSECUTIVE SUBSEQUENCE USING HASH MAP APPROACH:"<<longestConsecutiveSubsequence(arr, n)<<endl;
+    cout<<"LENGTH OF THE LONGEST CONSECUTIVE SUBSEQUENCE USING SET APPROACH:"<<longestConsecutiveSubsequenceSet(arr, n);    
 
     return 0;
 }
