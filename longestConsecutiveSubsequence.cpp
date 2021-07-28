@@ -43,9 +43,11 @@ int longestConsecutiveSubsequence(int arr[], int n){
 
 int main(){
 
-    int arr[] = {14,5,1,2,6,3,7,8,9,13,5,11,12,13,17};
+    int arr[] = {14,5,1,2,6,8,9,4,3,10,0};
 
-    cout<<"LENGTH OF THE LONGEST CONSECUTIVE SUBSEQUENCE:"<<longestConsecutiveSubsequence(arr, 15);    
+    int n = sizeof(arr)/sizeof(int);
+
+    cout<<"LENGTH OF THE LONGEST CONSECUTIVE SUBSEQUENCE:"<<longestConsecutiveSubsequence(arr, n);    
 
     return 0;
 }
